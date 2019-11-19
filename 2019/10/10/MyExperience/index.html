@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="LaWayne">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="LaWayne">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>自学前端之路 · LaWayne&#39;s Self-Study Room</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >LaWayne&#39;s Self-Study Room.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">自学前端之路</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>LaWayne's Self-Study Room.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            自学前端之路
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "其他">其他</a>
+    
+</div>
+                
+                <!-- 
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">2.2k</span>阅读时长: <span class="post-count reading-time">7 min</span></span>
+                    </div>
+                 -->
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/10/10</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="初识前端"><a href="#初识前端" class="headerlink" title="初识前端"></a>初识前端</h2><p>笔者本科虽然作为一个计算机系的学生，但是基本上没有接触过前端，主修的方向是嵌入式方向，大部分时间都是与各种单片机打交道。毕业之后，笔者与大多数迷茫的应届毕业生一样，奔跑在各种招聘之中，与前端的第一次相识便是在一次被套路的面试中。</p>
+<p>武汉作为大学第二多的城市，潜伏着无数准备套路应届毕业生的培训公司。培训公司套路往往大同小异，给你一份非投递方向的笔试题，然后告知你能力不够需要培训，一顿扒拉之后，带着你体验一下他们的培训课程。我深刻的记得那次在一栋光谷高楼里面，一个培训师以为我是来参加培训的学生，带着一脸懵逼的我用原生的js+html+css仿了一个百度的主页面，之后在老师的连续推销课程轰炸下，我十分感动然后拒绝了他，然后在老师恨铁不成钢的眼神中慌忙跑出了大楼，这便是与前端的第一次相识。</p>
+<h2 id="波折入行"><a href="#波折入行" class="headerlink" title="波折入行"></a>波折入行</h2><p>在武汉的烈日和各种培训公司的折磨下，笔者毅然决然的决定南下到一线城市深圳寻求机会，一是为了为了学习最新的技术，二是提升自己的视野，三是为了站到更高的平台。深圳机会很多，不到一周边找到了一份银行系统的工作，不过需要培训上岗。主要技术栈是cobol+db2+cics，平台是IBM大型机。由于计算机系基础知识的加成，笔者很快就掌握这些技术栈并且进入到MTC，CIR项目组，成为主要开发人员。</p>
+<p>在经过一段时间的银行系统开发后，笔者发现目前工作使用技术栈比较老旧，并且就业前景比较狭窄，虽然工作内容比较轻松但是办公环境死气沉沉，比较适合养老。正好姐夫就值迅雷前端，一番交流，加上自己花时间去了解，前端正处于“黄金时代”，并且前端技术发展极速前行，一头扎入到前端自学大军中。</p>
+<h2 id="从入门到。。。"><a href="#从入门到。。。" class="headerlink" title="从入门到。。。"></a>从入门到。。。</h2><p>如果对前端只是有一个大概的了解，可能会觉得前端工作内容很简单，无非就是js+html+css，刚准备入行前端的我就是这样想的。由于有其他编程语言的基础，js+html+css上手很快。当时我的学习路线很简单，利用工作之外的时间加上周末差不多15天左右跟着慕课网上html+css课程敲了一遍并且把《javascript权威指南》简单的过了一遍（当时很多东西也不理解靠死记硬背也为后面基础差埋了坑）。当时的我自认为已经足够胜任一份前端工作，于是在做了一些基本的面试准备后，投入到前端的求职中。</p>
+<p>幸运的是我很快就得到一份前端工作，并且面试官给的评价是基础较好，面试题做的比大多数人都好，当时内心还有点津津自喜，现在想来真是令人汗颜。。。时值公司内前端技术栈正好由jq变为react全家桶，于是又通过学习掌握了react技术栈。随着工作时间的增长，发现前端的远没有自己刚开始想的那么简单。</p>
+<p>三大框架、工程化、浏览器兼容、网站安全、数据可视化、小程序、SSR、WebAssembly、PWA等等，每一个都可以单独作为一个方向来深入研究。而且正如我上文所说前端技术发展极速前行，就拿JavaScript标准来说，ES6中引入的新特性超过了过去十年的总和，更别说它带来的实践，仅仅是一个Proxy特性的引入，就支持了VueJS从2.0到3.0内核原理的完全升级，所以作为一个程序员必须不停的折腾，保持学习才能更好的适应新大环境。</p>
+<h2 id="痛点与反思"><a href="#痛点与反思" class="headerlink" title="痛点与反思"></a>痛点与反思</h2><p>自学前端的最大的痛点就是没有系统的学习过程，没有建立完整的知识体系，对于知识的理解基本都停留在点上，没有把它们串成线，所以常常会出现遗漏和盲点，常常会把之前学过的知识忘掉。可能大多数前端对于JavaScript知识的理解都停留在以下几个知识点：</p>
+<ul>
+<li>数据类型；</li>
+<li>类型转换；</li>
+<li>this;</li>
+<li>原型链;</li>
+<li>作用域;</li>
+<li>执行上下文;</li>
+<li>闭包;</li>
+<li>。。。</li>
+</ul>
+<p>这些知识点之间，没有任何逻辑关系，合在一起也就没有任何意义，所以每次针对去看一个知识点，没有把它串联到自己的知识体系中，虽然当时觉得豁然开朗，很容易过一段时间就忘了。</p>
+<p>笔者在经历了最开始的愣头青阶段，通过不断的学习，虽然在脑海中有一个大概知识架构，但总是没有具体细化出来。</p>
+<h2 id="关于学习"><a href="#关于学习" class="headerlink" title="关于学习"></a>关于学习</h2><p><strong>1.  学习途径</strong></p>
+<p>刚开始很喜欢看教学视频，后来觉得视频虽然很详细但是很拖沓，而且很多知识点经过别人的转述可能没那么准确。后来更喜欢看书或者有针对性的看对应的技术性文章。书的目录可以预先给你建立一个整体的知识框架，可以在学习的时候产生联想并且串联起来，而技术性文章一般都是某技术点很精炼的总结，可以很快的有针对性的掌握。</p>
+<p>书的话推荐实体书，实体书可以很方便的用笔写自己的心得和注释，并且下次再看的时候也可以看到之前的理解。</p>
+<p><strong>2.  学习方法</strong></p>
+<blockquote>
+<p>针对某一项技术，最好先去跟着官方文档走一遍，然后去github上找一个开源项目自己去模仿修改，一定要自己动手多写，光看文档等于白给。</p>
+</blockquote>
+<blockquote>
+<p>如果是看书的话，最好是先仔细的看一下书的目录，对书的内容有一个整体的印象和知识框架，然后再去看书把一章章内容插到自己建立的知识框架中。</p>
+</blockquote>
+<blockquote>
+<p>在工作中遇到问题，不要只关注现象，要深入到问题出现的根源，避免下次再出现类似的问题，或者出现了类似的问题能迅速的定位并且解决。</p>
+</blockquote>
+<blockquote>
+<p>多看优秀开源项目的源码，不一定要逐行逐句的去读，但是要能看明白那些优秀工程师解决一个问题的思路，你常常会在里面看到一段代码然后惊呼<em>居然可以这样用！</em></p>
+</blockquote>
+<p><strong>无论是看书还是看官方文档，一定要动手去写代码，写代码，写代码（重要的事情讲3遍），而且一定要有自己的总结。</strong></p>
+<p><strong>3.  学习时间</strong></p>
+<blockquote>
+<p> 每天一定要抽出时间来学习，即使是一篇微信公众号的技术文章，长时间积累下来都是很大的进步。</p>
+</blockquote>
+<blockquote>
+<p> 每天一定要抽出时间来总结，只有总结才能把别人的变成自己的。</p>
+</blockquote>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>这篇博文作为开博客之后的第一篇，主要是回顾一下自己从接触前端到如今的一些经历，一是反思了一下自己很多不足和需要改进的地方，二也可以即将迈入前端这一行的新手一点启发和参考，希望他们可以少踩坑。</p>
+<p>其实自己在工作和学习中都有记录问题和笔记的习惯，只是都是随手写在有道云笔记中，比较随意。今后希望自己能稳定产出比较有质量的博文，既能稳固自己的知识，也能锻炼自己的表达能力。</p>
+<p>很喜欢一句话：<em>世界对工程师是没有秘密的。</em> 这句话并不是说工程师自大的认为了解一切，而是工程师在面对一个问题时一定要做到追根溯源的态度。</p>
+<p>与诸君共勉！</p>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://yoursite.com">LaWayne</a>
+            <p>更新日期：<a href="http://yoursite.com/2019/10/10/MyExperience/">November 19th 2019, 11:23:16 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2019/10/19/FrontEndSystem/" title= "建立知识架构">
+                    <div class="nextTitle">建立知识架构</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="javascript:" class="iconfont-archer email" title=413770472@qq.com ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/luowei95327" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <a href="//steamcommunity.com/profiles/76561198090139069/" class="iconfont-archer steam" target="_blank" title=steam></a>
+            
+        
+    
+
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#初识前端"><span class="toc-number">1.</span> <span class="toc-text">初识前端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#波折入行"><span class="toc-number">2.</span> <span class="toc-text">波折入行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从入门到。。。"><span class="toc-number">3.</span> <span class="toc-text">从入门到。。。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#痛点与反思"><span class="toc-number">4.</span> <span class="toc-text">痛点与反思</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于学习"><span class="toc-number">5.</span> <span class="toc-text">关于学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写在最后"><span class="toc-number">6.</span> <span class="toc-text">写在最后</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 3
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/20</span><a class="archive-post-title" href= "/2019/10/20/JavaScriptNumber/" >由一道面试题联想到的JavaScript数字类型</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/19</span><a class="archive-post-title" href= "/2019/10/19/FrontEndSystem/" >建立知识架构</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2019/10/10/MyExperience/" >自学前端之路</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="前端基础"><span class="iconfont-archer">&#xe606;</span>前端基础</span>
+    
+        <span class="sidebar-tag-name" data-tags="其他"><span class="iconfont-archer">&#xe606;</span>其他</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "LaWayne"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
