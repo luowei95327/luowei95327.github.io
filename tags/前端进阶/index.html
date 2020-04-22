@@ -346,248 +346,35 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2020/02/24/XSS/" >
+        <a class="abstract-title" href = "/2020/03/06/webpack/" >
             
-                <span>前端安全之 XSS</span>
+                <span>Webpack</span>
         </a>
         <div class="abstract-content">
-            什么是 XSS跨站脚本攻击(Cross Site Scripting)，为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为 XSS。恶意攻击者往 Web 页面里插入恶意 Script 代码，当用户浏览该页之时，嵌入其中 Web 里面的 Script 代码会被执行，从而达到恶意攻击用户的目的。
-常见的两种 XSS 类型 1.反射型 XSS （非持久化）攻击者构造恶意代码，并不会直接攻击客户，而是通过 URL 植入代码通过服务器获取并植入到用于页面完成攻击。
-2.存储型 XSS （持久化）攻击者通过网站的 input， textare...
+            Webpack1.1 基本原理
+entry : webpack 构建文件入口
+module : 在 webpack 中一个 module 对应一个文件。webpack 会从 entry 递归找出所有的依赖
+chunk : 代码块，一个 chunk 由多个 module 组成，用于代码分割
+loader : 模块转换器，用于将模块转换成我们需要的内容
+plugin : 扩展插件，用于增强 webpack 功能，在 webpack 构建时的特定时机会广播对应的事件，插件可以监听这些事件的发生，在特定的时机做对应的事情。
+
+1.2 流程概述
+初始化参数
+开始编译
+确定入口
+编译模块
+完成编译模...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/24</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/03/06</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "前端基础">前端基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/02/23/CSRF/" >
-            
-                <span>前端安全之CSRF</span>
-        </a>
-        <div class="abstract-content">
-            什么是 CSRFCSRF 全称是跨站请求伪造（Cross-Site request forgery），通俗的理解就是攻击者通过伪造成你的身份去恶意请求，极大的威胁到用户的信息和财产安全。
-CSRF 攻击原理CSRF 原理可以简单的概括为两个步骤：
-
-用户正常登录网站 A，并授信通过，本地保存 Cookie，
-在授信未失效时，访问危险网站 B，B 通过 Cookie 可伪造成用户对网站 A 请求。
-
-怎么检测 CSRF最简单检测 CSRF 的方法就是抓取一个正常请求的数据包，去掉 Referer 字段后，如果提交仍有效，那么基本上就可以确定存在 CSRF 漏洞。
-常见的漏洞检测工具有 CS...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/23</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "前端基础">前端基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/02/19/CrossDomain/" >
-            
-                <span>跨域与安全</span>
-        </a>
-        <div class="abstract-content">
-            什么是跨域跨域是因为浏览器同源策略的限制，只有源相同才能进行正常的通信。
-只有浏览器有同源策略，所以只有浏览器需要跨域，安卓/ios/Node.js/python/ java 等其它环境是不需要的。
-什么是同源策略同源策略是浏览器的一种基本和核心的安全策略，它用于限制一个 origin 的文档或者它加载的脚本如何能与另一个源的资源进行交互。它能帮助阻隔恶意文档，减少可能被攻击的媒介。
-同源策略规定域名、协议和端口号必须完全一致才是同源。
-同源策略的限制主要在两个方面：
-
-不能向工作在不同源的服务请求数据
-无法获取不同源的 document/cookie 等 BOM 和 DOM
-
-为什么要...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "前端基础">前端基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/02/16/DatatypeConversion/" >
-            
-                <span>javascript 类型转换</span>
-        </a>
-        <div class="abstract-content">
-            javascript 中存在显式转换和隐式转换：显式转换： 是我们利用 javascript 提供的函数或者方法手动对数据进行类型转换。隐式转换： 是 javascript 在运行中遇到特殊的场景会自动的对数据进行类型转换。
-显式转换转换为数值1. Number()作用：将任意类型的参数 mix 转换为数值类型。规则：
-如果是布尔值，true 和 false 分别被转换为 1 和 0。
-
-如果是数字值，返回本身。
-
-如果是 null，返回 0。
-
-如果是 undefined，返回 NaN。
-
-如果是字符串，遵循以下规则：
-
-如果字符串中只包含数字，则将其转换为十进制（忽略前导 0）
-如果...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/16</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "前端基础">前端基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/03/toLocaleString/" >
-            
-                <span>数字转换为货币格式</span>
-        </a>
-        <div class="abstract-content">
-            数字转换为货币格式在日常工作中或者面试中经常遇到的问题：将数字装换为货币格式（从末尾开始每三位用“，”分隔）。 例子：目标输入”1234567”，输出”1,234,567”。
-以前最常用两种方法处理：
-1.正则表达式function formatMoney (str) {
-  return str.replace(/\B(?=(\d{3})+(?!\d))/g, &apos;,&apos;);
-}2.分割拼接2.1  优雅至上function formatMoney(str) {
-  return str.split(&apos;&apos;).reverse().reduce((pre...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/03</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "前端基础">前端基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/27/JavaScriptNumber/" >
-            
-                <span>由一道面试题联想到的JavaScript数字类型</span>
-        </a>
-        <div class="abstract-content">
-            由一道面试题联想到的JavaScript数字类型前段时间一个刚转行前端的朋友跟我交流了一下她的一次面试，前面题目都很简单，是关于JavaScript字符串和数组方法的运用。最后有一道比较有意思的题：
-
-求一个数阶层末位“0”的个数
-
-听完题目之后有两种思路：
-
-首先求出这个数的阶乘，然后再求末位“0”的个数。
-
-第二种就是跳过求阶乘，直接寻找末位“0”的规律。
-
-
-最后面试官给的答案思路是第一种，先递归求阶层然后用正则求末位“0”的个数。这里我们先看第二种方法，因为第一种方法感觉有隐藏的坑。
-质因数分解把实际问题转换成数学问题的思想非常重要，第二种思路最关键的思想就是质因数分解。
-这里我...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "前端基础">前端基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/19/FrontEndSystem/" >
-            
-                <span>建立知识架构</span>
-        </a>
-        <div class="abstract-content">
-            为什么要建立知识架构要学习一个知识最好的方法就是先建立一个对应的知识框架，然后我们在学习对应的知识点的的时候就能很快的与相关知识点进行串联和联系，方便我们理解其原理。
-在我刚开始学前端的时候确实没有在脑中建立一个知识架构这样的意识，常常是遇到某一个知识点就去单独的寻找针对性的文章进行阅读和理解，当时觉得豁然开朗信心满满，在过一段时间后再想那个知识点虽然会明白大概的意思，却怎么也说不清楚。
-其实这其中的真正的原因是我们将里面的知识点都拆分成了没有联系的单独的点去理解，脑海中都是零零散散的知识点，并没有真正的理解和串联起来。就像我们小时候背课文或古诗，只要弄明白了上下文的意思，就可以很快的背...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "前端基础">前端基础</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "前端进阶">前端进阶</a>
     
 </div>
             

@@ -346,6 +346,234 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2020/03/16/HttpCache/" >
+            
+                <span>浏览器缓存，http 缓存</span>
+        </a>
+        <div class="abstract-content">
+            缓存分很多种，DNS 缓存，服务器缓存，内存缓存， 硬盘缓存等等，前端常说的缓存主要是指 http 缓存也叫浏览器缓存，后文所说的缓存都是这种。
+缓存工作机制：
+
+浏览器每次向服务器端请求之前会在浏览器缓存中寻找当前请求的结果和缓存标识。
+浏览器会将每次请求服务器返回对结果和缓存标识存入浏览器缓存中。
+
+强制缓存强制缓存的 3 种情况
+浏览器中不存在结果和缓存标识，强制缓存生效
+浏览器中存在结果和缓存标识，但是结果已失效，强制缓存失效，则使用协商缓存
+浏览器中存在结果和缓存标识，结果未失效，强制缓存生效，直接返回结果
+
+强制缓存的 2 种方式ExpiresHTTP/1.0 版本字段，值为...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/03/16</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "http 基础">http 基础</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/03/06/webpack/" >
+            
+                <span>Webpack</span>
+        </a>
+        <div class="abstract-content">
+            Webpack1.1 基本原理
+entry : webpack 构建文件入口
+module : 在 webpack 中一个 module 对应一个文件。webpack 会从 entry 递归找出所有的依赖
+chunk : 代码块，一个 chunk 由多个 module 组成，用于代码分割
+loader : 模块转换器，用于将模块转换成我们需要的内容
+plugin : 扩展插件，用于增强 webpack 功能，在 webpack 构建时的特定时机会广播对应的事件，插件可以监听这些事件的发生，在特定的时机做对应的事情。
+
+1.2 流程概述
+初始化参数
+开始编译
+确定入口
+编译模块
+完成编译模...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/03/06</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "前端进阶">前端进阶</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/02/24/XSS/" >
+            
+                <span>前端安全之 XSS</span>
+        </a>
+        <div class="abstract-content">
+            什么是 XSS跨站脚本攻击(Cross Site Scripting)，为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为 XSS。恶意攻击者往 Web 页面里插入恶意 Script 代码，当用户浏览该页之时，嵌入其中 Web 里面的 Script 代码会被执行，从而达到恶意攻击用户的目的。
+常见的两种 XSS 类型 1.反射型 XSS （非持久化）攻击者构造恶意代码，并不会直接攻击客户，而是通过 URL 植入代码通过服务器获取并植入到用于页面完成攻击。
+2.存储型 XSS （持久化）攻击者通过网站的 input， textare...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/24</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "前端基础">前端基础</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/02/23/CSRF/" >
+            
+                <span>前端安全之CSRF</span>
+        </a>
+        <div class="abstract-content">
+            什么是 CSRFCSRF 全称是跨站请求伪造（Cross-Site request forgery），通俗的理解就是攻击者通过伪造成你的身份去恶意请求，极大的威胁到用户的信息和财产安全。
+CSRF 攻击原理CSRF 原理可以简单的概括为两个步骤：
+
+用户正常登录网站 A，并授信通过，本地保存 Cookie，
+在授信未失效时，访问危险网站 B，B 通过 Cookie 可伪造成用户对网站 A 请求。
+
+怎么检测 CSRF最简单检测 CSRF 的方法就是抓取一个正常请求的数据包，去掉 Referer 字段后，如果提交仍有效，那么基本上就可以确定存在 CSRF 漏洞。
+常见的漏洞检测工具有 CS...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/23</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "前端基础">前端基础</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/02/19/CrossDomain/" >
+            
+                <span>跨域与安全</span>
+        </a>
+        <div class="abstract-content">
+            什么是跨域跨域是因为浏览器同源策略的限制，只有源相同才能进行正常的通信。
+只有浏览器有同源策略，所以只有浏览器需要跨域，安卓/ios/Node.js/python/ java 等其它环境是不需要的。
+什么是同源策略同源策略是浏览器的一种基本和核心的安全策略，它用于限制一个 origin 的文档或者它加载的脚本如何能与另一个源的资源进行交互。它能帮助阻隔恶意文档，减少可能被攻击的媒介。
+同源策略规定域名、协议和端口号必须完全一致才是同源。
+同源策略的限制主要在两个方面：
+
+不能向工作在不同源的服务请求数据
+无法获取不同源的 document/cookie 等 BOM 和 DOM
+
+为什么要...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "前端基础">前端基础</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/02/16/DatatypeConversion/" >
+            
+                <span>javascript 类型转换</span>
+        </a>
+        <div class="abstract-content">
+            javascript 中存在显式转换和隐式转换：显式转换： 是我们利用 javascript 提供的函数或者方法手动对数据进行类型转换。隐式转换： 是 javascript 在运行中遇到特殊的场景会自动的对数据进行类型转换。
+显式转换转换为数值1. Number()作用：将任意类型的参数 mix 转换为数值类型。规则：
+如果是布尔值，true 和 false 分别被转换为 1 和 0。
+
+如果是数字值，返回本身。
+
+如果是 null，返回 0。
+
+如果是 undefined，返回 NaN。
+
+如果是字符串，遵循以下规则：
+
+如果字符串中只包含数字，则将其转换为十进制（忽略前导 0）
+如果...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/16</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "前端基础">前端基础</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/11/03/toLocaleString/" >
             
                 <span>数字转换为货币格式</span>
@@ -562,9 +790,77 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 4
+        Total : 10
         </div>
         <!-- search  -->
         
@@ -574,6 +870,45 @@
     
     
     
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/16</span><a class="archive-post-title" href= "/2020/03/16/HttpCache/" >浏览器缓存，http 缓存</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/06</span><a class="archive-post-title" href= "/2020/03/06/webpack/" >Webpack</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/24</span><a class="archive-post-title" href= "/2020/02/24/XSS/" >前端安全之 XSS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/23</span><a class="archive-post-title" href= "/2020/02/23/CSRF/" >前端安全之CSRF</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/19</span><a class="archive-post-title" href= "/2020/02/19/CrossDomain/" >跨域与安全</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/16</span><a class="archive-post-title" href= "/2020/02/16/DatatypeConversion/" >javascript 类型转换</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
@@ -606,6 +941,10 @@
         <span class="sidebar-tag-name" data-tags="前端基础"><span class="iconfont-archer">&#xe606;</span>前端基础</span>
     
         <span class="sidebar-tag-name" data-tags="其他"><span class="iconfont-archer">&#xe606;</span>其他</span>
+    
+        <span class="sidebar-tag-name" data-tags="前端进阶"><span class="iconfont-archer">&#xe606;</span>前端进阶</span>
+    
+        <span class="sidebar-tag-name" data-tags="http 基础"><span class="iconfont-archer">&#xe606;</span>http 基础</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>

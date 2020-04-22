@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>LaWayne&#39;s Self-Study Room</title>
+    <title>前端安全之CSRF · LaWayne&#39;s Self-Study Room</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >LaWayne&#39;s Self-Study Room.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">前端安全之CSRF</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>LaWayne's Self-Study Room.</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            前端安全之CSRF
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "前端基础">前端基础</a>
+    
+</div>
+                
+                <!-- 
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">941</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                    </div>
+                 -->
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/02/23</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,264 +399,71 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/02/24/XSS/" >
-            
-                <span>前端安全之 XSS</span>
-        </a>
-        <div class="abstract-content">
-            什么是 XSS跨站脚本攻击(Cross Site Scripting)，为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为 XSS。恶意攻击者往 Web 页面里插入恶意 Script 代码，当用户浏览该页之时，嵌入其中 Web 里面的 Script 代码会被执行，从而达到恶意攻击用户的目的。
-常见的两种 XSS 类型 1.反射型 XSS （非持久化）攻击者构造恶意代码，并不会直接攻击客户，而是通过 URL 植入代码通过服务器获取并植入到用于页面完成攻击。
-2.存储型 XSS （持久化）攻击者通过网站的 input， textare...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/24</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "前端基础">前端基础</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="什么是-CSRF"><a href="#什么是-CSRF" class="headerlink" title="什么是 CSRF"></a>什么是 CSRF</h2><p>CSRF 全称是跨站请求伪造（Cross-Site request forgery），通俗的理解就是攻击者通过伪造成你的身份去恶意请求，极大的威胁到用户的信息和财产安全。</p>
+<h2 id="CSRF-攻击原理"><a href="#CSRF-攻击原理" class="headerlink" title="CSRF 攻击原理"></a>CSRF 攻击原理</h2><p>CSRF 原理可以简单的概括为两个步骤：</p>
+<ol>
+<li>用户正常登录网站 A，并授信通过，本地保存 Cookie，</li>
+<li>在授信未失效时，访问危险网站 B，B 通过 Cookie 可伪造成用户对网站 A 请求。</li>
+</ol>
+<h2 id="怎么检测-CSRF"><a href="#怎么检测-CSRF" class="headerlink" title="怎么检测 CSRF"></a>怎么检测 CSRF</h2><p>最简单检测 CSRF 的方法就是抓取一个正常请求的数据包，去掉 Referer 字段后，如果提交仍有效，那么基本上就可以确定存在 CSRF 漏洞。</p>
+<p>常见的漏洞检测工具有 CSRFTester，CSRF Request Builder 等，其工作原理就是抓取我们在浏览器中访问过的所有链接以及所有的表单等信息，然后通过在 CSRFTester 中修改相应的表单等信息，重新提交，这相当于一次伪造客户端请求。如果修改后的测试请求成功被网站服务器接受，则说明存在 CSRF 漏洞，当然此款工具也可以被用来进行 CSRF 攻击。</p>
+<h2 id="怎么防御-CSRF"><a href="#怎么防御-CSRF" class="headerlink" title="怎么防御 CSRF"></a>怎么防御 CSRF</h2><p>其实从 CSRF 的攻击原理来看，主要是授信网站无法识别请求的源头是用户还是恶意网站，所以我们防御 CSRF 的思路就是对请求进行身份验证。</p>
+<p>目前防御 CSRF 攻击主要有三种策略：验证 HTTP Referer 字段；在请求地址中添加 token 并验证；在 HTTP 头中自定义属性并验证。</p>
+<h4 id="1-尽量使用-POST，限制-GET"><a href="#1-尽量使用-POST，限制-GET" class="headerlink" title="1.尽量使用 POST，限制 GET"></a>1.尽量使用 POST，限制 GET</h4><p>GET 接口太容易被拿来做 CSRF 攻击，只要构造一个 img 标签，而 img 标签又是不能过滤的数据。</p>
+<p>接口最好限制为 POST 使用，GET 则无效，降低攻击风险。</p>
+<p>当然 POST 并不是万无一失，攻击者只要构造一个 form 就可以，但需要在第三方页面做，这样就增加暴露的可能性。</p>
+<h4 id="2-加验证码"><a href="#2-加验证码" class="headerlink" title="2.加验证码"></a>2.加验证码</h4><p>涉及到用户交互时，需要用户填验证码才能完成最终请求，但是出于用户体验，不可能所有网站操作都加上验证码，因此只能作为一种辅助手段。</p>
+<h4 id="3-Referer-Check"><a href="#3-Referer-Check" class="headerlink" title="3.Referer Check"></a>3.Referer Check</h4><p>Referer Check 可以被用于检查请求是否来自合法的“源”（Referer 值是否是指定页面，或者网站的域），如果都不是，那么就极可能是 CSRF 攻击。</p>
+<p>但是因为服务器并不是什么时候都能取到 Referer，所以也无法作为 CSRF 防御的主要手段。</p>
+<h4 id="4-Token"><a href="#4-Token" class="headerlink" title="4.Token"></a>4.Token</h4><p>例子：<br>1、用户访问某个表单页面。<br>2、 服务端生成一个 Token，放在用户的 Session 中，或者浏览器的 Cookie 中。<br>3、在页面表单附带上 Token 参数。<br>4、用户提交请求后， 服务端验证表单中的 Token 是否与用户 Session（或 Cookies）中的 Token 一致，一致为合法请求，不是则非法请求。</p>
+<p>这个 Token 的值必须是随机的，不可预测的。由于 Token 的存在，攻击者无法再构造一个带有合法 Token 的请求实施 CSRF 攻击。另外使用 Token 时应注意 Token 的保密性，尽量把敏感操作由 GET 改为 POST，以 form 或 AJAX 形式提交，避免 Token 泄露。</p>
+<p><strong>注意</strong>：<br>CSRF 的 Token 仅仅用于对抗 CSRF 攻击。当网站同时存在 XSS 漏洞时候，那这个方案也是空谈。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>CSRF 漏洞是网站安全不可忽视的威胁，虽然浏览器的一些安全策略能降低被 CSRF 攻击的风险，但我们仍要在开发中做到万无一失。</p>
+
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/02/23/CSRF/" >
-            
-                <span>前端安全之CSRF</span>
-        </a>
-        <div class="abstract-content">
-            什么是 CSRFCSRF 全称是跨站请求伪造（Cross-Site request forgery），通俗的理解就是攻击者通过伪造成你的身份去恶意请求，极大的威胁到用户的信息和财产安全。
-CSRF 攻击原理CSRF 原理可以简单的概括为两个步骤：
-
-用户正常登录网站 A，并授信通过，本地保存 Cookie，
-在授信未失效时，访问危险网站 B，B 通过 Cookie 可伪造成用户对网站 A 请求。
-
-怎么检测 CSRF最简单检测 CSRF 的方法就是抓取一个正常请求的数据包，去掉 Referer 字段后，如果提交仍有效，那么基本上就可以确定存在 CSRF 漏洞。
-常见的漏洞检测工具有 CS...
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://yoursite.com">LaWayne</a>
+            <p>更新日期：<a href="http://yoursite.com/2020/02/23/CSRF/">April 20th 2020, 3:57:54 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/23</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "前端基础">前端基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/02/19/CrossDomain/" >
-            
-                <span>跨域与安全</span>
-        </a>
-        <div class="abstract-content">
-            什么是跨域跨域是因为浏览器同源策略的限制，只有源相同才能进行正常的通信。
-只有浏览器有同源策略，所以只有浏览器需要跨域，安卓/ios/Node.js/python/ java 等其它环境是不需要的。
-什么是同源策略同源策略是浏览器的一种基本和核心的安全策略，它用于限制一个 origin 的文档或者它加载的脚本如何能与另一个源的资源进行交互。它能帮助阻隔恶意文档，减少可能被攻击的媒介。
-同源策略规定域名、协议和端口号必须完全一致才是同源。
-同源策略的限制主要在两个方面：
-
-不能向工作在不同源的服务请求数据
-无法获取不同源的 document/cookie 等 BOM 和 DOM
-
-为什么要...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "前端基础">前端基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/02/16/DatatypeConversion/" >
-            
-                <span>javascript 类型转换</span>
-        </a>
-        <div class="abstract-content">
-            javascript 中存在显式转换和隐式转换：显式转换： 是我们利用 javascript 提供的函数或者方法手动对数据进行类型转换。隐式转换： 是 javascript 在运行中遇到特殊的场景会自动的对数据进行类型转换。
-显式转换转换为数值1. Number()作用：将任意类型的参数 mix 转换为数值类型。规则：
-如果是布尔值，true 和 false 分别被转换为 1 和 0。
-
-如果是数字值，返回本身。
-
-如果是 null，返回 0。
-
-如果是 undefined，返回 NaN。
-
-如果是字符串，遵循以下规则：
-
-如果字符串中只包含数字，则将其转换为十进制（忽略前导 0）
-如果...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/16</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "前端基础">前端基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/03/toLocaleString/" >
-            
-                <span>数字转换为货币格式</span>
-        </a>
-        <div class="abstract-content">
-            数字转换为货币格式在日常工作中或者面试中经常遇到的问题：将数字装换为货币格式（从末尾开始每三位用“，”分隔）。 例子：目标输入”1234567”，输出”1,234,567”。
-以前最常用两种方法处理：
-1.正则表达式function formatMoney (str) {
-  return str.replace(/\B(?=(\d{3})+(?!\d))/g, &apos;,&apos;);
-}2.分割拼接2.1  优雅至上function formatMoney(str) {
-  return str.split(&apos;&apos;).reverse().reduce((pre...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/03</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "前端基础">前端基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/27/JavaScriptNumber/" >
-            
-                <span>由一道面试题联想到的JavaScript数字类型</span>
-        </a>
-        <div class="abstract-content">
-            由一道面试题联想到的JavaScript数字类型前段时间一个刚转行前端的朋友跟我交流了一下她的一次面试，前面题目都很简单，是关于JavaScript字符串和数组方法的运用。最后有一道比较有意思的题：
-
-求一个数阶层末位“0”的个数
-
-听完题目之后有两种思路：
-
-首先求出这个数的阶乘，然后再求末位“0”的个数。
-
-第二种就是跳过求阶乘，直接寻找末位“0”的规律。
-
-
-最后面试官给的答案思路是第一种，先递归求阶层然后用正则求末位“0”的个数。这里我们先看第二种方法，因为第一种方法感觉有隐藏的坑。
-质因数分解把实际问题转换成数学问题的思想非常重要，第二种思路最关键的思想就是质因数分解。
-这里我...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "前端基础">前端基础</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/19/FrontEndSystem/" >
-            
-                <span>建立知识架构</span>
-        </a>
-        <div class="abstract-content">
-            为什么要建立知识架构要学习一个知识最好的方法就是先建立一个对应的知识框架，然后我们在学习对应的知识点的的时候就能很快的与相关知识点进行串联和联系，方便我们理解其原理。
-在我刚开始学前端的时候确实没有在脑中建立一个知识架构这样的意识，常常是遇到某一个知识点就去单独的寻找针对性的文章进行阅读和理解，当时觉得豁然开朗信心满满，在过一段时间后再想那个知识点虽然会明白大概的意思，却怎么也说不清楚。
-其实这其中的真正的原因是我们将里面的知识点都拆分成了没有联系的单独的点去理解，脑海中都是零零散散的知识点，并没有真正的理解和串联起来。就像我们小时候背课文或古诗，只要弄明白了上下文的意思，就可以很快的背...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "前端基础">前端基础</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2020/02/24/XSS/" title= "前端安全之 XSS">
+                    <div class="nextTitle">前端安全之 XSS</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2020/02/19/CrossDomain/" title= "跨域与安全">
+                    <div class="prevTitle">跨域与安全</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -630,6 +498,24 @@ CSRF 攻击原理CSRF 原理可以简单的概括为两个步骤：
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是-CSRF"><span class="toc-number">1.</span> <span class="toc-text">什么是 CSRF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSRF-攻击原理"><span class="toc-number">2.</span> <span class="toc-text">CSRF 攻击原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#怎么检测-CSRF"><span class="toc-number">3.</span> <span class="toc-text">怎么检测 CSRF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#怎么防御-CSRF"><span class="toc-number">4.</span> <span class="toc-text">怎么防御 CSRF</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-尽量使用-POST，限制-GET"><span class="toc-number">4.0.1.</span> <span class="toc-text">1.尽量使用 POST，限制 GET</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-加验证码"><span class="toc-number">4.0.2.</span> <span class="toc-text">2.加验证码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Referer-Check"><span class="toc-number">4.0.3.</span> <span class="toc-text">3.Referer Check</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Token"><span class="toc-number">4.0.4.</span> <span class="toc-text">4.Token</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -900,6 +786,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
