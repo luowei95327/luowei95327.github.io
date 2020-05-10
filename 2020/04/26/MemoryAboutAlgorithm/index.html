@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>跨域与安全 · LaWayne&#39;s Self-Study Room</title>
+    <title>一篇关于算法的最初回忆 · LaWayne&#39;s Self-Study Room</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >LaWayne&#39;s Self-Study Room.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">跨域与安全</a>
+                <a href="#" class="post-name">一篇关于算法的最初回忆</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            跨域与安全
+            一篇关于算法的最初回忆
             <!-- 404 -->
             
         </h1>
@@ -266,18 +266,18 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "前端基础">前端基础</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "其他">其他</a>
     
 </div>
                 
                 <!-- 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1k</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.3k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
                     </div>
                  -->
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2020/02/19</span>
+                    <span class="post-intro-time">2020/04/26</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,46 +401,50 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h2><p>跨域是因为浏览器同源策略的限制，只有源相同才能进行正常的通信。</p>
-<p>只有浏览器有同源策略，所以只有浏览器需要跨域，安卓/ios/Node.js/python/ java 等其它环境是不需要的。</p>
-<h2 id="什么是同源策略"><a href="#什么是同源策略" class="headerlink" title="什么是同源策略"></a>什么是同源策略</h2><p>同源策略是浏览器的一种基本和核心的安全策略，它用于限制一个 origin 的文档或者它加载的脚本如何能与另一个源的资源进行交互。它能帮助阻隔恶意文档，减少可能被攻击的媒介。</p>
-<p>同源策略规定域名、协议和端口号必须完全一致才是同源。</p>
-<p>同源策略的限制主要在两个方面：</p>
+        <p>跑步是一件枯燥且疲惫的事情，却是大脑最放松的时刻。身体重复着单一的动作，大脑不用再去思考那些琐碎的事情。</p>
+<p>在跑步的时候我常常听着舒缓的纯音乐任由思绪遨游到远方，或者是思考生活工作中遇到的问题，又或者是复习或总结最近刚学的技术。</p>
+<p>今天跑步时偶然想到刚入大学时看到的一篇文章，过了 7，8 年至今仍有深刻的印象，于是回到家之后立马搜索出那篇文章再次阅读，不由得回想起第一次阅读这篇文章的心情。<br><a href="http://www.aqee.net/post/google-interviewing-story.html" target="_blank" rel="noopener">文章链接</a></p>
+<p>文章算是比较诙谐有趣，大意讲的是一个高级工程师几次面试，并且最后成功进入到自己梦想的公司 — 谷歌。在面试谷歌之前的一次面试中，有一个面试官提出了一道面试题。</p>
+<p>问题是这样的：</p>
+<p>假设这有一个各种字母组成的字符串，假设这还有另外一个字符串，而且这个字符串里的字母数相对少一些。从算法上讲，什么方法能最快的查出所有小字符串里的字母在大字符串里都有？</p>
+<p>比如，如果是下面两个字符串：</p>
+<p>String 1: ABCDEFGHLMNOPQRS</p>
+<p>String 2: DCGSRQPOM</p>
+<p>答案是 true，所有在 string2 里的字母 string1 也都有。如果是下面两个字符串：</p>
+<p>String 1: ABCDEFGHLMNOPQRS</p>
+<p>String 2: DCGSRQPOZ</p>
+<p>答案是 false，因为第二个字符串里的 Z 字母不在第一个字符串里。</p>
+<p>作者提出了以下三种方案但并没有使面试官满意：</p>
 <ol>
-<li>不能向工作在不同源的服务请求数据</li>
-<li>无法获取不同源的 document/cookie 等 BOM 和 DOM</li>
-</ol>
-<h2 id="为什么要有同源策略"><a href="#为什么要有同源策略" class="headerlink" title="为什么要有同源策略"></a>为什么要有同源策略</h2><p>我们可以从同源策略的两个限制来看：</p>
-<ol>
-<li><p>为什么要限制不同源的请求？<br>假设有两个网站 bank.com 和 cheat.com，并且我们已经通过了 bank.com 服务端的登录校验，如果没有同源策略的限制，那么 cheat.com 就可以对 bank.com 进行服务端请求。（CSRF）</p>
+<li><p>轮询第二个字符串里的每个字母，看它是否同在第一个字符串里。算法时间复杂度为 O(m*n) （m，n 为两个字符串的长度）</p>
 </li>
-<li><p>为什么要限制不同源的 DOM 操作？<br>假设有两个网站 bank.com 和 bamk.com，如果没有同源策略限制 dom 操作的话，bamk.com 可以通过 iframe 套用 back.com，当用户输入账号，密码等信息，bamk.com 可以通过 dom 操作全部获取。</p>
+<li><p>先对两个字符串排序，然后一次轮询。排序需要 O(m log m) + O(n log n)次操作，之后的线性扫描需要 O(m+n)次操作。</p>
+</li>
+<li><p>将长字符串字母放入 Hashtable，然后轮短字符串看是否在表中。只需要 O(n+m)次操作。</p>
 </li>
 </ol>
-<p>同源策略确实能规避一些风险，提高一些攻击成本，但并不是说有了同源策略就完全行了。同时我们有时也会需要对不同源的通信，那就是跨域通信。</p>
-<h2 id="常用的几种跨域方式"><a href="#常用的几种跨域方式" class="headerlink" title="常用的几种跨域方式"></a>常用的几种跨域方式</h2><h3 id="请求跨域"><a href="#请求跨域" class="headerlink" title="请求跨域"></a>请求跨域</h3><p>跨域常常是需要后台进行配合的，如果光前端就能独自进行跨域，那么浏览器的同源策略还有什么用。</p>
-<h4 id="跨域资源共享（CORS）"><a href="#跨域资源共享（CORS）" class="headerlink" title="跨域资源共享（CORS）"></a>跨域资源共享（CORS）</h4><p>后端返回设置 Access-Control-Allow-Orign，Access-Control-Allow-Methods 字段。</p>
-<p>提前说明跨域限制并不是限制发出请求，而是对响应进行拦截。</p>
-<p>跨域资源共享（CORS）是一个 W3C 标准。服务端返回字段 Access-Control-Allow-Orign，Access-Control-Allow-Methods 可以对有权访问的源和方法进行限制，只要浏览器检测到允许的源包含请求的网站就不会对响应进行拦截。</p>
-<p>CORS 把请求分为两种一种是简单请求，另一种是非简单请求，它会触发嗅探请求返回 204 之后才会发真正的请求。</p>
-<p>简单请求的条件:</p>
+<p>最后面试官提出一种方案：<br>给每一个字母配一个素数，然后遍历长串，将字母对应素数相乘，然后轮询第二个字符串，用每个字母的素数除它，如果有余数则说明有不匹配的字母，如果整个过程中没有余数，则说明是第一个字符串的子集。</p>
+<p>最后作者在谷歌的面试上遇到同样的问题，并最后成功用这种有趣的方案提高在谷歌面试官眼中的评价。</p>
+<p>不能说面试官的方案是更实用的方案，但是对于刚学习编程的我来说，看到这种解决问题的思路就像一个孩子发现新玩具一样欣喜。<br>以至于到现在我仍然记得这一篇文章，每当看到字符串对比相关问题时第一个想到的反而就是素数相除法。</p>
+<p>想想我们工作以后有多久没有因为写代码而开心快乐，再想想我们刚开始学习编程时用代码实现功能之后的成就感。</p>
+<p>诚然在我们工作中常常面对的是写很多重复的业务代码，但我们仍然可以从中为自己寻找一些乐趣和挑战，比如尝试写一些工具帮我们完成那些重复的工作，或者让自己的代码更精炼和易懂，又或者对我们习以为常的问题想一想有没有其他的方案。</p>
+<p>曾经我在开发过程中遇到一个很常见的问题：数组去重。脑海里第一反应就是遍历然后用 indexOf、include 判断唯一性，或者 ES6 的 Set。当时是果断用了 Set 这种比较优雅的方法。后来晚上回想到这里时，突然想到了 JavaScript 中的对象属性唯一性（Hashtable），立马动手写出了已知的几种方案然后测试了一下耗时，发现在数组长度在一定时，其耗时竟然最短（不过使用空间也比其他的要大），当时着实也兴奋了一下。后来网上看了一下数组去重的方案，发现别人也提出过这种方案，不过自己思考出来的印象更深刻一些。</p>
+<p>最后说一下自己感想：</p>
 <ol>
-<li>只使用 GET/POST/HEAD 请求方式</li>
-<li>只使用 Content-Type/Accept 等几个常用的 http 头</li>
+<li><p>程序员注定是一个要一生保持学习的职业，但是同样基础是里面最重要的一环，只有打好地基，才能稳固。</p>
+</li>
+<li><p>程序员要保持思考，就像学习算法和设计模式，你遇到的问题不会正好是案例，更多的是需要你从中汲取的是解决问题的思考模式和组织代码架构的能力。</p>
+</li>
+<li><p>保持梦想，不忘初心。</p>
+</li>
 </ol>
-<p>除了简单请求以外的都是非简单请求。</p>
-<h4 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h4><p>JSONP 的原理就是在本地注册一个处理函数，利用 HTML 的一些不受跨域限制的标签（script， img）对服务器进行访问，服务器返回要调用的函数名称并将需要的数据以参数的形式返回，浏览器收到就会执行处理函数。</p>
-<h4 id="服务器代理"><a href="#服务器代理" class="headerlink" title="服务器代理"></a>服务器代理</h4><p>我们知道只有浏览器才有同源策略，而服务器之间是没有跨域限制的，所以我们可以用一个代理帮我们转发请求就不存在跨域。</p>
-<h3 id="DOM-跨域"><a href="#DOM-跨域" class="headerlink" title="DOM 跨域"></a>DOM 跨域</h3><h4 id="postMessage"><a href="#postMessage" class="headerlink" title="postMessage"></a>postMessage</h4><p>window.postMessage() 是 HTML5 的一个接口，专注实现不同窗口不同页面的跨域通讯。<br>使用起来也比较简单，发送页面使用 postMessage()API 发送消息，接收页面通过 “message” 事件监听。</p>
-<p>补充一点，如果需要和同源的不同标签页进行通信可以使用 localStorage，即一个页面设置 localStorage，其它页面就会触发 storage 事件。</p>
-<h4 id="document-domain"><a href="#document-domain" class="headerlink" title="document.domain"></a>document.domain</h4><p>这种方式只适合主域名相同，但子域名不同的 iframe 跨域。<br>例如:<br>主：<a href="http://domain.com" target="_blank" rel="noopener">http://domain.com</a><br>子：<a href="http://child.domain.com" target="_blank" rel="noopener">http://child.domain.com</a><br>这种情况下给两个页面指定一下 document.domain 即 document.domain = crossdomain.com 就可以访问各自的 window 对象了。</p>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="http://yoursite.com">LaWayne</a>
-            <p>更新日期：<a href="http://yoursite.com/2020/02/19/CrossDomain/">April 20th 2020, 11:18:06 am</a>
+            <p>更新日期：<a href="http://yoursite.com/2020/04/26/MemoryAboutAlgorithm/">May 10th 2020, 11:16:38 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -448,17 +452,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2020/02/23/CSRF/" title= "前端安全之CSRF">
-                    <div class="nextTitle">前端安全之CSRF</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2020/02/16/DatatypeConversion/" title= "javascript 类型转换">
-                    <div class="prevTitle">javascript 类型转换</div>
+                <a href= "/2020/04/19/Cookie-SameSite/" title= "Chrome 80 版本登录失效之 Cookie 的 SameSite 属性">
+                    <div class="prevTitle">Chrome 80 版本登录失效之 Cookie 的 SameSite 属性</div>
                 </a>
             
         </li>
@@ -527,7 +526,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是跨域"><span class="toc-number">1.</span> <span class="toc-text">什么是跨域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是同源策略"><span class="toc-number">2.</span> <span class="toc-text">什么是同源策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要有同源策略"><span class="toc-number">3.</span> <span class="toc-text">为什么要有同源策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用的几种跨域方式"><span class="toc-number">4.</span> <span class="toc-text">常用的几种跨域方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#请求跨域"><span class="toc-number">4.1.</span> <span class="toc-text">请求跨域</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#跨域资源共享（CORS）"><span class="toc-number">4.1.1.</span> <span class="toc-text">跨域资源共享（CORS）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JSONP"><span class="toc-number">4.1.2.</span> <span class="toc-text">JSONP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#服务器代理"><span class="toc-number">4.1.3.</span> <span class="toc-text">服务器代理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM-跨域"><span class="toc-number">4.2.</span> <span class="toc-text">DOM 跨域</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#postMessage"><span class="toc-number">4.2.1.</span> <span class="toc-text">postMessage</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#document-domain"><span class="toc-number">4.2.2.</span> <span class="toc-text">document.domain</span></a></li></ol></li></ol></li></ol>
+        
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
