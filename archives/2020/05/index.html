@@ -346,34 +346,26 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2020/03/16/HttpCache/" >
+        <a class="abstract-title" href = "/2020/05/01/webpack_alias/" >
             
-                <span>浏览器缓存，http 缓存</span>
+                <span>配置 VScode 支持 webpack 的 alias 属性</span>
         </a>
         <div class="abstract-content">
-            缓存分很多种，DNS 缓存，服务器缓存，内存缓存， 硬盘缓存等等，前端常说的缓存主要是指 http 缓存也叫浏览器缓存，后文所说的缓存都是这种。
-缓存工作机制：
-
-浏览器每次向服务器端请求之前会在浏览器缓存中寻找当前请求的结果和缓存标识。
-浏览器会将每次请求服务器返回对结果和缓存标识存入浏览器缓存中。
-
-强制缓存强制缓存的 3 种情况
-浏览器中不存在结果和缓存标识，强制缓存生效
-浏览器中存在结果和缓存标识，但是结果已失效，强制缓存失效，则使用协商缓存
-浏览器中存在结果和缓存标识，结果未失效，强制缓存生效，直接返回结果
-
-强制缓存的 2 种方式ExpiresHTTP/1.0 版本字段，值为...
+            问题描述使用 VScode 编辑器来开发项目时，编辑器自带路径提示和 Ctrl + 鼠标左键 点击引用的文件或者文件路径可以快速定位到源文件的功能。实际项目中如果目录层次多嵌套很深，引用常用组件或者方法时常常需要 “../../ …”，既不直观，webpack 定位文件也会更慢。使用 webpack 的 alias 可以配置路径别名，以绝对路径的写法代替大量相对路径写法，写起来既直观，webpack 定位文件也会更快，但是会失去 VScode 自带的路径提示和源文件定位功能。
+解决方案
+在 VScode 上安装 Path Autocomplete 扩展
+在跟目录下增加 jsconfig....
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/03/16</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/05/01</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "http 基础">http 基础</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "问题总结">问题总结</a>
     
 </div>
             

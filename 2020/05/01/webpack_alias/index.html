@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>LaWayne&#39;s Self-Study Room</title>
+    <title>配置 VScode 支持 webpack 的 alias 属性 · LaWayne&#39;s Self-Study Room</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >LaWayne&#39;s Self-Study Room.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">配置 VScode 支持 webpack 的 alias 属性</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>LaWayne's Self-Study Room.</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            配置 VScode 支持 webpack 的 alias 属性
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "问题总结">问题总结</a>
+    
+</div>
+                
+                <!-- 
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">255</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                 -->
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/05/01</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,50 +399,84 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/03/16/HttpCache/" >
-            
-                <span>浏览器缓存，http 缓存</span>
-        </a>
-        <div class="abstract-content">
-            缓存分很多种，DNS 缓存，服务器缓存，内存缓存， 硬盘缓存等等，前端常说的缓存主要是指 http 缓存也叫浏览器缓存，后文所说的缓存都是这种。
-缓存工作机制：
+            <main class="main post-page">
+    <article class="article-entry">
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>使用 VScode 编辑器来开发项目时，编辑器自带路径提示和 Ctrl + 鼠标左键 点击引用的文件或者文件路径可以快速定位到源文件的功能。<br>实际项目中如果目录层次多嵌套很深，引用常用组件或者方法时常常需要 “../../ …”，既不直观，webpack 定位文件也会更慢。<br>使用 webpack 的 alias 可以配置路径别名，以绝对路径的写法代替大量相对路径写法，写起来既直观，webpack 定位文件也会更快，但是会失去 VScode 自带的路径提示和源文件定位功能。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol>
+<li>在 VScode 上安装 Path Autocomplete 扩展</li>
+<li>在跟目录下增加 jsconfig.json 文件，内容如下：</li>
+</ol>
+<pre>
+  //webpack
+  <code>
+    {
+      resolve: {
+        alias: {
+          '@components': path.resolve(__dirname, "src/components"),
+          '@utils': path.resolve(__dirname, "src/utils"),
+          '@services': path.resolve(__dirname, "src/services"),
+        }
+      }
+    }
+  </code>
 
-浏览器每次向服务器端请求之前会在浏览器缓存中寻找当前请求的结果和缓存标识。
-浏览器会将每次请求服务器返回对结果和缓存标识存入浏览器缓存中。
+  //jsconfig.json
+  <code>
+    {
+      "compilerOptions": {
+        "target": "es2017",
+        "allowSyntheticDefaultImports": false,
+        "baseUrl": "./",
+        "paths": {
+          //@XXXXX 为路径别名，冒号后面为绝对路径
+          "@components/*": ["src/components/*"],
+          "@utils/*": ["src/utils/*"],
+          "@services/*": ["src/services/*"],
+        }
+      },
+      "exclude": ["node_modules", "dist"],
+      "include": ["src"]
+    }
+  </code>
+</pre>
 
-强制缓存强制缓存的 3 种情况
-浏览器中不存在结果和缓存标识，强制缓存生效
-浏览器中存在结果和缓存标识，但是结果已失效，强制缓存失效，则使用协商缓存
-浏览器中存在结果和缓存标识，结果未失效，强制缓存生效，直接返回结果
-
-强制缓存的 2 种方式ExpiresHTTP/1.0 版本字段，值为...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/03/16</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "http 基础">http 基础</a>
-    
-</div>
-            
-        </div>
     </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://yoursite.com">LaWayne</a>
+            <p>更新日期：<a href="http://yoursite.com/2020/05/01/webpack_alias/">May 13th 2020, 11:07:43 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2020/04/26/MemoryAboutAlgorithm/" title= "一篇关于算法的最初回忆">
+                    <div class="prevTitle">一篇关于算法的最初回忆</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -416,6 +511,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -736,6 +849,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
